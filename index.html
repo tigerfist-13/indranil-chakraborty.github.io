@@ -1,65 +1,409 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Indranil | Application Security Engineer</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Senior Application Security Engineer | AppSec, DevSecOps, Cloudflare WAF, Terraform, Python automation, Threat Modelling, AI Security & LLM Red Teaming." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Indranil — Senior Application Security Engineer" />
+  <meta property="og:description" content="AppSec • DevSecOps • Cloudflare WAF • Terraform • Python automation • Threat Modelling • AI Security" />
+  <meta property="og:type" content="website" />
+  <!-- Optional: put a real image in /assets/og-image.png -->
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <title>Indranil | Senior Application Security Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data (helps SEO / rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Indranil",
+    "jobTitle":"Senior Application Security Engineer",
+    "knowsAbout":[
+      "Application Security","Secure Code Review","Threat Modelling","Penetration Testing",
+      "Cloudflare WAF","Terraform","DevSecOps","CI/CD Security","Python Automation",
+      "Threat Hunting","Incident Response","AI Security","LLM Red Teaming"
+    ],
+    "url":"https://YOUR_USERNAME.github.io",
+    "sameAs":[
+      "https://github.com/YOUR_USERNAME",
+      "https://www.linkedin.com/in/YOUR_LINKEDIN"
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
 
-<header>
-<h1>Indranil</h1>
-<p>Senior Application Security Engineer | Bug Bounty Hunter | AI Security Research</p>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">
+          <!-- Optional: replace with an image in assets/avatar.jpg -->
+          <img src="assets/avatar.jpg" alt="" onerror="this.remove(); document.documentElement.classList.add('no-avatar');" />
+          <div class="avatar-fallback">I</div>
+        </div>
+        <div class="brand-text">
+          <div class="name">Indranil</div>
+          <div class="title">Senior Application Security Engineer</div>
+        </div>
+      </div>
 
-<section>
-<h2>About Me</h2>
-<p>
-Application Security Engineer experienced in threat modelling, secure code review,
-penetration testing, and DevSecOps integration. Passionate about building
-security automation and exploring emerging risks in AI systems.
-</p>
-</section>
+      <nav class="nav">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#ai">AI Security</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<section>
-<h2>Core Skills</h2>
-<ul>
-<li>Application Security</li>
-<li>Threat Modelling</li>
-<li>Secure Code Review</li>
-<li>Cloud Security (AWS)</li>
-<li>WAF Security</li>
-<li>Security Automation (Python)</li>
-<li>AI / LLM Security</li>
-</ul>
-</section>
+      <div class="header-actions">
+        <button class="btn ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="btn-text">Theme</span>
+        </button>
+        <button class="btn" id="printBtn" type="button">
+          <span class="icon" aria-hidden="true">⤓</span>
+          <span class="btn-text">Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<section>
-<h2>Experience</h2>
+  <main id="content" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="pill">Open to: Senior AppSec / Product Security • London (UK) • Hybrid/Remote</div>
+        <h1>
+          I secure modern web and cloud-native applications —
+          <span class="grad">from design to detection</span>.
+        </h1>
+        <p class="lede">
+          I work across secure code reviews, threat modelling, penetration testing, and DevSecOps enablement.
+          I also build security automations (Python) and design scalable WAF controls using Cloudflare + Terraform.
+          Recently: focusing on secure AI development and LLM red teaming.
+        </p>
 
-<h3>Application Security Engineer</h3>
-<p>
-Leading secure development practices including threat modelling, vulnerability
-assessments, and DevSecOps security integrations.
-</p>
+        <div class="cta-row">
+          <!-- Replace with your real links -->
+          <a class="btn" href="mailto:YOUR_EMAIL">Email</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
 
-</section>
+        <div class="quick-metrics">
+          <div class="metric">
+            <div class="metric-k">Focus</div>
+            <div class="metric-v">AppSec • Cloud • AI Security</div>
+          </div>
+          <div class="metric">
+            <div class="metric-k">Strength</div>
+            <div class="metric-v">Practical exploitation + engineering fixes</div>
+          </div>
+          <div class="metric">
+            <div class="metric-k">Tooling</div>
+            <div class="metric-v">Cloudflare • Terraform • Python • CI/CD</div>
+          </div>
+        </div>
+      </div>
 
-<section>
-<h2>Projects</h2>
-<ul>
-<li>Security Automation Toolkit</li>
-<li>WAF Rule Testing Lab</li>
-<li>AI Red Team Playground</li>
-<li>Bug Bounty Recon Automation</li>
-</ul>
-</section>
+      <div class="hero-right">
+        <div class="card highlight">
+          <div class="card-title">Signature strengths</div>
+          <ul class="checklist">
+            <li>End-to-end AppSec (review → test → remediate → verify)</li>
+            <li>WAF rules as code (Cloudflare + Terraform)</li>
+            <li>Automation-first approach (Python scripts + lightweight tooling)</li>
+            <li>Threat modelling & secure architecture reviews</li>
+            <li>IR/SOC deep-dive support and threat hunting collaboration</li>
+            <li>Secure AI implementation & LLM red teaming</li>
+          </ul>
+        </div>
 
-<section>
-<h2>Contact</h2>
-<p>Email: your@email.com</p>
-<p>LinkedIn: linkedin.com/in/yourprofile</p>
-</section>
+        <div class="card">
+          <div class="card-title">What I’m looking for</div>
+          <p class="muted">
+            Senior Application Security / Product Security roles where I can own security outcomes,
+            partner deeply with engineering, and scale security through automation and pragmatic design.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="muted">Role titles/company names can be customized — I’ve written this to match what you already shared.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-when">202X — Present</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Application Security Engineer <span class="muted">@ Company</span></h3>
+            <div class="chips">
+              <span class="chip">AppSec</span>
+              <span class="chip">DevSecOps</span>
+              <span class="chip">Cloudflare</span>
+              <span class="chip">Terraform</span>
+              <span class="chip">Python</span>
+              <span class="chip">Threat Modelling</span>
+              <span class="chip">AI Security</span>
+            </div>
+            <ul class="bullets">
+              <li>Led end-to-end Application Security activities including secure code reviews, vulnerability assessments, penetration testing, and threat modelling across web and cloud-native applications.</li>
+              <li>Developed Python scripts and lightweight automations to streamline security testing, data analysis, and operational workflows, improving efficiency for AppSec and engineering teams.</li>
+              <li>Designed and implemented Web Application Firewall (WAF) rules using Terraform (IaC) for Cloudflare, enabling scalable and consistent security controls across environments.</li>
+              <li>Administered and tuned Cloudflare security configurations (WAF, bot protection, rate limiting, and custom rules) to enhance application resilience and reduce attack surface.</li>
+              <li>Partnered with SOC and Incident Response teams for deep-dive AppSec support during incidents, including root-cause analysis and remediation guidance.</li>
+              <li>Built and supported DevSecOps security tooling by integrating security checks into CI/CD pipelines and improving developer security enablement.</li>
+              <li>Conducted threat hunting exercises with SOC to identify anomalous behaviours and emerging attack patterns.</li>
+              <li>Supported security and regulatory compliance audits by providing evidence, risk assessments, and remediation status tracking.</li>
+              <li><strong>Current:</strong> Working on secure AI development and implementation, and preparing for AI red teaming / LLM security testing.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Add more roles here if you want -->
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-when">Earlier</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Security / Engineering Roles <span class="muted">@ Previous companies</span></h3>
+            <p class="muted">
+              Add earlier roles here if you want a full history, or keep this site “senior-focused” with only the most relevant roles.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="muted">Optimized for what FAANG / big tech interviews actually probe.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Application Security</div>
+          <ul class="list">
+            <li>Secure code review (web + APIs)</li>
+            <li>Threat modelling (STRIDE-style, practical)</li>
+            <li>AuthN/AuthZ reviews (RBAC/ABAC)</li>
+            <li>Vulnerability assessment & remediation</li>
+            <li>Penetration testing mindset (attack chains)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Cloud & Platform</div>
+          <ul class="list">
+            <li>Cloudflare WAF / bot / rate limiting</li>
+            <li>Terraform (security controls as code)</li>
+            <li>CI/CD security enablement</li>
+            <li>Security logging & detection basics</li>
+            <li>Cloud-native threat patterns (SSRF, IAM risk)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Automation & Tooling</div>
+          <ul class="list">
+            <li>Python automation for security workflows</li>
+            <li>Data parsing & analysis (logs/JSON)</li>
+            <li>Security testing utilities & scripts</li>
+            <li>Developer enablement tooling</li>
+            <li>Dashboards / reporting (as needed)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card callout">
+        <div class="card-title">Interview-ready topics</div>
+        <div class="pill-row">
+          <span class="pill small">OAuth2 / OIDC</span>
+          <span class="pill small">JWT pitfalls</span>
+          <span class="pill small">SSRF → metadata</span>
+          <span class="pill small">IDOR</span>
+          <span class="pill small">Rate limiting</span>
+          <span class="pill small">WAF bypass categories</span>
+          <span class="pill small">Secure file upload design</span>
+          <span class="pill small">Secure API design</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="muted">Pin 3–6 repos here. Keep it tight and security-relevant.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card project">
+          <div class="project-top">
+            <h3>Security Automation Toolkit</h3>
+            <span class="tag">Python</span>
+          </div>
+          <p class="muted">
+            Scripts/utilities to automate repetitive AppSec workflows (e.g., header checks, log parsing, simple endpoint analysis).
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/security-automation-toolkit" target="_blank" rel="noreferrer">Repo</a>
+            <a href="#" class="muted" aria-disabled="true">Demo</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>Cloudflare WAF Rules as Code</h3>
+            <span class="tag">Terraform</span>
+          </div>
+          <p class="muted">
+            Infrastructure-as-code patterns for consistent WAF, rate limiting, and bot controls across environments.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/cloudflare-waf-terraform" target="_blank" rel="noreferrer">Repo</a>
+            <a href="#" class="muted" aria-disabled="true">Write-up</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>Bug Bounty Recon Pipeline</h3>
+            <span class="tag">Automation</span>
+          </div>
+          <p class="muted">
+            Automated recon workflow (subdomains → live hosts → tech fingerprinting → findings triage).
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/bugbounty-recon-pipeline" target="_blank" rel="noreferrer">Repo</a>
+            <a href="#" class="muted" aria-disabled="true">Notes</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <h3>LLM Security Testing Playground</h3>
+            <span class="tag">AI Security</span>
+          </div>
+          <p class="muted">
+            Experiments and notes on prompt injection, guardrail bypass patterns, and secure AI application design.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/llm-security-playground" target="_blank" rel="noreferrer">Repo</a>
+            <a href="#" class="muted" aria-disabled="true">Lab</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI SECURITY -->
+    <section id="ai" class="section">
+      <div class="section-head">
+        <h2>AI Security & LLM Red Teaming</h2>
+        <p class="muted">This section differentiates you for big tech. Keep it practical and systems-focused.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">What I work on</div>
+          <ul class="list">
+            <li>Prompt injection & data exfiltration risks</li>
+            <li>RAG security: retrieval poisoning, sensitive context leakage</li>
+            <li>Guardrails: bypass patterns, policy enforcement gaps</li>
+            <li>Secure AI implementation patterns (logging, monitoring, evaluation)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">How I approach AI security</div>
+          <ul class="list">
+            <li>Threat model the AI app (not just the model)</li>
+            <li>Define boundaries: tools, retrieval, plugins, user inputs</li>
+            <li>Test with structured adversarial cases</li>
+            <li>Recommend layered mitigations + detection</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTS / TALKS (optional) -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Certifications & Speaking</h2>
+        <p class="muted">Optional. Add only what’s real.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Certifications</div>
+          <ul class="list">
+            <li>Coming soon / Add yours</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">Talks / Writing</div>
+          <ul class="list">
+            <li>Planned: “From Recon to Report: Automating Bug Bounty Ops with AI Agents” (add link when ready)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">If you want recruiter-friendly: keep it simple.</p>
+      </div>
+
+      <div class="card contact">
+        <div class="contact-row">
+          <div class="contact-k">Email</div>
+          <div class="contact-v"><a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">LinkedIn</div>
+          <div class="contact-v"><a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer">linkedin.com/in/YOUR_LINKEDIN</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">GitHub</div>
+          <div class="contact-v"><a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">github.com/YOUR_USERNAME</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">Location</div>
+          <div class="contact-v">London, UK</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted">© <span id="year"></span> Indranil • Built on GitHub Pages</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
