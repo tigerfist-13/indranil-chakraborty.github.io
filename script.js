@@ -1,31 +1,29 @@
 (function () {
   const root = document.documentElement;
-  const themeToggle = document.getElementById("themeToggle");
-  const printBtn = document.getElementById("printBtn");
-  const yearEl = document.getElementById("year");
+  const toggle = document.getElementById("themeToggle");
+  const year = document.getElementById("year");
 
-  // Year
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  year.textContent = new Date().getFullYear();
 
-  // Theme init
+  // Load saved theme
   const saved = localStorage.getItem("theme");
-  const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  if (saved === "light") root.setAttribute("data-theme", "light");
 
-  if (saved === "light" || (!saved && prefersLight)) {
-    root.setAttribute("data-theme", "light");
-  } else {
-    root.setAttribute("data-theme", "dark");
+  function updateIcon() {
+    const isLight = root.getAttribute("data-theme") === "light";
+    toggle.textContent = isLight ? "☀️" : "🌙";
   }
+  updateIcon();
 
-  function toggleTheme() {
-    const current = root.getAttribute("data-theme");
-    const next = current === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  }
-
-  if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
-
-  // Print to PDF
-  if (printBtn) printBtn.addEventListener("click", () => window.print());
+  toggle.addEventListener("click", () => {
+    const isLight = root.getAttribute("data-theme") === "light";
+    if (isLight) {
+      root.removeAttribute("data-theme");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+    updateIcon();
+  });
 })();
