@@ -1,35 +1,298 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Indranil — Application Security Engineer</title>
-  <meta name="description" content="Indranil | Application Security | VAPT | DevSecOps | Cloudflare WAF | AWS | AI Security" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Indranil | Application Security & DevSecOps</title>
+  <meta name="description" content="Indranil — Application Security Engineer | VAPT | DevSecOps | Cloudflare WAF (Terraform) | AWS (Cognito) | AI Security"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0B1020;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.12);
+      --txt: rgba(255,255,255,.92);
+      --mut: rgba(255,255,255,.70);
+      --mut2: rgba(255,255,255,.55);
+      --accent:#7CDAFF;
+      --accent2:#8B5CF6;
+      --ok:#22C55E;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+      --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    [data-theme="light"]{
+      --bg0:#F6F7FB;
+      --bg1:#EEF2FF;
+      --card: rgba(10,15,30,.05);
+      --card2: rgba(10,15,30,.07);
+      --line: rgba(10,15,30,.12);
+      --txt: rgba(10,15,30,.92);
+      --mut: rgba(10,15,30,.68);
+      --mut2: rgba(10,15,30,.55);
+      --accent:#2563EB;
+      --accent2:#7C3AED;
+      --shadow: 0 12px 40px rgba(10,15,30,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 12% 8%, rgba(124,218,255,.18), transparent 55%),
+        radial-gradient(850px 540px at 86% 12%, rgba(139,92,246,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,0));
+      border-bottom: 1px solid var(--line);
+    }
+    [data-theme="light"] .topbar{ background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0)); }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:-.2px;
+    }
+    .logo{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,218,255,.12);
+    }
+    .nav{
+      display:flex; gap:18px; align-items:center;
+      font-size:14px; color:var(--mut);
+    }
+    .nav a{ padding:8px 10px; border-radius:999px; }
+    .nav a:hover{ background: var(--card); color: var(--txt); }
+
+    .actions{display:flex; gap:10px; align-items:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      box-shadow: var(--shadow);
+      font-weight:700; font-size:14px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn-ghost{ background: transparent; box-shadow:none; }
+    .btn-small{ padding:9px 12px; font-weight:700; }
+    .kbd{
+      font-size:12px; color:var(--mut2); border:1px solid var(--line);
+      padding:2px 8px; border-radius:999px; background: var(--card);
+    }
+
+    /* Hero */
+    .hero{ padding:46px 0 22px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.45fr .75fr;
+      gap:18px;
+      align-items:start;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--card);
+      color:var(--mut);
+      font-size:13px;
+    }
+    .pill-dot{
+      width:8px;height:8px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(32px, 4.1vw, 54px);
+      line-height:1.06;
+      letter-spacing:-1px;
+    }
+    .grad{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .lead{
+      margin:0;
+      color:var(--mut);
+      font-size:16px;
+      line-height:1.7;
+      max-width: 70ch;
+    }
+    .hero-cta{ display:flex; gap:10px; margin:18px 0 0; flex-wrap:wrap; }
+
+    .stats{
+      margin-top:18px;
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:12px 12px;
+    }
+    .stat .k{color:var(--mut2); font-size:12px;}
+    .stat .v{margin-top:6px; font-weight:800; font-size:13px;}
+
+    /* Profile card */
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .profile{ padding:16px; position:sticky; top:84px; }
+    .pf-top{ display:flex; align-items:center; gap:12px; }
+    .avatar{
+      width:54px; height:54px; border-radius:16px;
+      background:
+        radial-gradient(34px 34px at 30% 30%, rgba(124,218,255,.25), transparent 60%),
+        radial-gradient(34px 34px at 70% 70%, rgba(139,92,246,.22), transparent 60%),
+        rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+    .pf-name{font-weight:900; margin:0; font-size:16px;}
+    .pf-role{margin:3px 0 0; color:var(--mut); font-size:13px;}
+    .pf-links{ margin-top:12px; display:grid; gap:8px; }
+    .pf-links a{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:10px 10px;
+      border-radius:14px;
+      color:var(--mut);
+      font-size:13px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .pf-links a:hover{ background: var(--card); color: var(--txt); }
+    .tagrow{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--mut);
+      white-space:nowrap;
+    }
+
+    /* Sections */
+    section{ padding:20px 0; }
+    .section-head{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:12px;
+      margin-bottom:12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.4px;
+    }
+    .section-head p{ margin:0; color:var(--mut); font-size:14px; }
+
+    .grid{
+      display:grid; gap:12px;
+    }
+    .grid-2{ grid-template-columns: 1fr 1fr; }
+    .grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+    .box{ padding:16px; }
+    .list{ margin:10px 0 0; padding-left:18px; color:var(--mut); line-height:1.65; }
+    .list li{ margin:8px 0; }
+
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .chip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding:7px 10px;
+      border-radius:999px;
+      color:var(--mut);
+      font-size:12px;
+    }
+    .chip strong{ color:var(--txt); }
+
+    /* Experience */
+    .xp{ padding:16px; }
+    .xp-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+    .xp h3{ margin:0; font-size:15px; letter-spacing:-.2px; }
+    .meta{ color:var(--mut2); font-size:12px; }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(34,197,94,.10);
+      color: rgba(34,197,94,.95);
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    /* Footer */
+    footer{
+      padding:26px 0 40px;
+      color:var(--mut2);
+      font-size:13px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+    }
+    .footer-row{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .profile{ position:relative; top:auto; }
+      .grid-2, .grid-3{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
+    }
+  </style>
 </head>
 
 <body>
   <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#top">
-        <span class="brand__dot"></span>
-        <span class="brand__name">Indranil</span>
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="logo"></span>
+        <span>Indranil</span>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
+        <a href="#focus">AI Focus</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="topbar__actions">
-        <button class="btn btn--ghost" id="themeToggle" aria-label="Toggle theme">🌙</button>
-        <a class="btn" href="#contact">Let’s talk</a>
+      <div class="actions">
+        <button class="btn btn-ghost btn-small" id="themeBtn" aria-label="Toggle theme">🌙</button>
+        <a class="btn btn-small" href="#contact">Connect</a>
       </div>
     </div>
   </header>
@@ -37,142 +300,165 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="pill">Application Security • DevSecOps • Cloud • AI Security</p>
+      <div class="container hero-grid">
+        <div>
+          <div class="pill"><span class="pill-dot"></span> Application Security • DevSecOps • Cloud • AI Security</div>
           <h1>
-            Application Security Engineer focused on
-            <span class="accent">shipping secure products</span>.
+            Hands-on <span class="grad">Application Security</span> engineer<br/>
+            securing products from build to release.
           </h1>
           <p class="lead">
-            10+ years across product-based and consulting environments.
-            I work hands-on with VAPT, secure code review, threat modelling,
-            Cloudflare WAF (Terraform), AWS security, and security automation in Python.
+            10+ years across product and consulting roles. I do VAPT, secure code review, threat modelling,
+            Cloudflare WAF (Terraform IaC), AWS security reviews (incl. Cognito), DevSecOps enablement,
+            and security automation in Python — with strong SOC/IR collaboration.
           </p>
 
-          <div class="hero__cta">
-            <a class="btn" href="#experience">View experience</a>
-            <a class="btn btn--ghost" href="#projects">See projects</a>
+          <div class="hero-cta">
+            <a class="btn" href="#experience">View Experience</a>
+            <a class="btn btn-ghost" href="#skills">Core Skills</a>
+            <span class="kbd">GitHub Pages CV</span>
           </div>
 
-          <div class="hero__meta">
-            <div class="meta-card">
-              <div class="meta-card__label">Location</div>
-              <div class="meta-card__value">United Kingdom</div>
+          <div class="stats">
+            <div class="stat">
+              <div class="k">Strength</div>
+              <div class="v">Manual testing + practical remediation</div>
             </div>
-            <div class="meta-card">
-              <div class="meta-card__label">Open to</div>
-              <div class="meta-card__value">Relocation & Travel</div>
+            <div class="stat">
+              <div class="k">Edge & Cloud</div>
+              <div class="v">Cloudflare WAF + AWS (Cognito)</div>
             </div>
-            <div class="meta-card">
-              <div class="meta-card__label">Focus</div>
-              <div class="meta-card__value">AppSec + DevSecOps + AI Red Team prep</div>
+            <div class="stat">
+              <div class="k">Now learning</div>
+              <div class="v">Secure AI + AI red teaming</div>
             </div>
           </div>
         </div>
 
-        <aside class="hero__card">
-          <div class="profile">
-            <!-- Optional: add your generated headshot as assets/headshot.png -->
-            <div class="profile__img" role="img" aria-label="Profile photo">
-              <img src="assets/headshot.png" alt="Indranil headshot" onerror="this.style.display='none'; this.parentElement.classList.add('profile__img--fallback');"/>
-              <div class="fallback">
-                <span>IN</span>
-              </div>
+        <!-- PROFILE -->
+        <aside class="card profile">
+          <div class="pf-top">
+            <div class="avatar" title="Indranil">IN</div>
+            <div>
+              <p class="pf-name">Indranil</p>
+              <p class="pf-role">Application Security • DevSecOps • Cloud</p>
             </div>
+          </div>
 
-            <div class="profile__info">
-              <h2>Indranil</h2>
-              <p>Application Security Engineer</p>
+          <div class="pf-links">
+            <!-- Replace the # with your real links -->
+            <a href="#" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+            <a href="#" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+            <a href="mailto:your.email@domain.com">Email <span>↗</span></a>
+          </div>
 
-              <ul class="profile__links">
-                <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a></li>
-                <li><a href="https://github.com/yourprofile" target="_blank" rel="noreferrer">GitHub</a></li>
-                <li><a href="mailto:your.email@email.com">your.email@email.com</a></li>
-              </ul>
-
-              <div class="chips">
-                <span class="chip">VAPT</span>
-                <span class="chip">Threat Modelling</span>
-                <span class="chip">Cloudflare WAF</span>
-                <span class="chip">AWS (Cognito)</span>
-                <span class="chip">Python</span>
-                <span class="chip">DevSecOps</span>
-              </div>
-            </div>
+          <div class="tagrow">
+            <span class="tag">VAPT</span>
+            <span class="tag">Threat Modelling</span>
+            <span class="tag">Secure Code Review</span>
+            <span class="tag">Cloudflare WAF</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">AWS Cognito</span>
+            <span class="tag">Python</span>
+            <span class="tag">DevSecOps</span>
           </div>
         </aside>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section id="about">
       <div class="container">
-        <div class="section__header">
-          <h2>About</h2>
-          <p>A practical AppSec engineer who enjoys partnering with engineering & SOC to reduce real risk.</p>
+        <div class="section-head">
+          <div>
+            <h2>About</h2>
+            <p>What I do and how I work.</p>
+          </div>
         </div>
 
-        <div class="card prose">
-          <p>
-            I’m an Application Security professional with 10+ years of experience across product companies and consulting,
-            helping teams build and release software securely. My work spans manual testing, secure design reviews,
-            threat modelling, and enabling security in CI/CD.
+        <div class="card box">
+          <p style="margin:0; color:var(--mut); line-height:1.75;">
+            I’m an Application Security professional with 10+ years of experience across service-based consulting and
+            product-based organisations. I like work that is hands-on and outcome-driven: find real issues, explain them
+            clearly, help engineering fix them, and validate the fix properly.
+            <br/><br/>
+            In recent roles I’ve focused on securing web and cloud-native applications, building repeatable controls
+            (Cloudflare WAF using Terraform), supporting SOC/incident response, enabling DevSecOps practices, and writing
+            small Python automations to reduce manual security overhead.
           </p>
-          <p>
-            In recent work I’ve focused heavily on cloud-native security and edge controls—especially Cloudflare WAF
-            managed through Terraform—as well as AWS security reviews (including Cognito). I also build lightweight
-            automations in Python to make security workflows faster and more reliable.
-          </p>
-          <p>
-            I’m currently expanding into secure AI development and preparing for AI red teaming, as AI systems introduce
-            new attack surfaces that need the same disciplined security approach.
-          </p>
+
+          <div class="chips">
+            <span class="chip"><strong>Domains:</strong> AppSec • VAPT • Threat Modelling • Secure Architecture Review</span>
+            <span class="chip"><strong>Edge:</strong> Cloudflare WAF • Bot protection • Rate limiting</span>
+            <span class="chip"><strong>Cloud:</strong> AWS security reviews • Cognito</span>
+            <span class="chip"><strong>Ops:</strong> IR support • Threat hunting • Audits</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="section" id="skills">
+    <section id="skills">
       <div class="container">
-        <div class="section__header">
-          <h2>Skills</h2>
-          <p>Core domains, tools, and platforms I work with.</p>
+        <div class="section-head">
+          <div>
+            <h2>Core skills</h2>
+            <p>Tools and capabilities I actively use.</p>
+          </div>
         </div>
 
-        <div class="grid grid--3">
-          <div class="card">
-            <h3>Security Domains</h3>
+        <div class="grid grid-3">
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">Application Security</h3>
             <ul class="list">
-              <li>Application Security (Web / API)</li>
-              <li>Vulnerability Assessment & Penetration Testing</li>
-              <li>Secure Code Review</li>
-              <li>Threat Modelling</li>
-              <li>Security Architecture Reviews</li>
-              <li>Incident Response Support</li>
+              <li>Secure code reviews, vulnerability assessment, penetration testing</li>
+              <li>Threat modelling and secure design reviews</li>
+              <li>Manual testing of web apps/APIs; risk-based validation</li>
+              <li>Remediation guidance and retesting with engineers</li>
             </ul>
           </div>
 
-          <div class="card">
-            <h3>DevSecOps & Cloud</h3>
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">DevSecOps & Automation</h3>
             <ul class="list">
-              <li>CI/CD security enablement (SAST / DAST / SCA)</li>
-              <li>Security tooling & automation (Python)</li>
-              <li>Cloudflare WAF & edge security controls</li>
-              <li>Terraform (IaC) for security policies</li>
-              <li>AWS security review (incl. Cognito)</li>
+              <li>Security checks integrated into CI/CD (SAST / DAST / SCA and more)</li>
+              <li>Python scripting for workflow automation and analysis</li>
+              <li>Security tooling support for DevSecOps enablement</li>
+              <li>Documentation, playbooks, and repeatable processes</li>
             </ul>
           </div>
 
-          <div class="card">
-            <h3>Tools</h3>
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">Cloud, Edge & Ops</h3>
             <ul class="list">
-              <li>Burp Suite Professional</li>
-              <li>Nessus • Qualys</li>
-              <li>Kali Linux toolsets</li>
-              <li>Netsparker (Invicti) (past exposure)</li>
-              <li>Threat hunting & SOC collaboration</li>
-              <li>AI security: secure AI dev + red team prep</li>
+              <li>Cloudflare WAF rules via Terraform (IaC)</li>
+              <li>Cloudflare tuning: bot protection, rate limiting, custom rules</li>
+              <li>AWS security reviews (including Cognito flows)</li>
+              <li>Incident response support + SOC threat hunting collaboration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:12px;">
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">Security tools</h3>
+            <div class="chips">
+              <span class="chip">Burp Suite Pro</span>
+              <span class="chip">Nessus</span>
+              <span class="chip">Qualys</span>
+              <span class="chip">Kali Linux tools</span>
+              <span class="chip">Netsparker (Invicti)</span>
+            </div>
+            <p style="margin:12px 0 0; color:var(--mut2); line-height:1.7;">
+              (Tools listed are based on your shared experience — keep only what you truly want on public GitHub.)
+            </p>
+          </div>
+
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">Mobile security</h3>
+            <ul class="list">
+              <li>MAST / mobile application security testing</li>
+              <li>Android and iOS security pentesting</li>
             </ul>
           </div>
         </div>
@@ -180,144 +466,176 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="section" id="experience">
+    <section id="experience">
       <div class="container">
-        <div class="section__header">
-          <h2>Experience</h2>
-          <p>Highlights from product-based and consulting roles.</p>
+        <div class="section-head">
+          <div>
+            <h2>Experience highlights</h2>
+            <p>Selected responsibilities that reflect your strongest scope.</p>
+          </div>
+          <span class="badge">10+ years</span>
         </div>
 
-        <div class="timeline">
-          <article class="timeline__item card">
-            <div class="timeline__top">
-              <h3>Application Security Engineer — Financial Services Product Company</h3>
-              <div class="muted">UK • (Add dates)</div>
+        <div class="grid" style="gap:12px;">
+          <article class="card xp">
+            <div class="xp-top">
+              <div>
+                <h3>Financial product-based company — Application Security / DevSecOps</h3>
+                <div class="meta">End-to-end AppSec ownership, edge controls, cloud reviews, SOC support</div>
+              </div>
+              <div class="meta">UK • (add dates)</div>
             </div>
             <ul class="list">
-              <li>Led end-to-end AppSec: secure code reviews, vulnerability assessments, penetration testing, and threat modelling across web and cloud-native apps.</li>
-              <li>Built Python scripts and automations to streamline testing, analysis, and operational workflows.</li>
-              <li>Designed and implemented Cloudflare WAF rules using Terraform (IaC); tuned WAF, bot protection, rate limiting, and custom rules.</li>
-              <li>Supported SOC/IR with deep-dive incident investigations, root-cause analysis, and remediation guidance.</li>
-              <li>Built and supported DevSecOps security tooling; integrated checks into CI/CD.</li>
-              <li>Supported audits/compliance, vendor due diligence, and security tool POCs.</li>
-              <li>Managed AWS security configurations (incl. Cognito) from an AppSec perspective.</li>
-              <li>Working on secure AI development and implementation; preparing for AI red teaming and adversarial testing.</li>
+              <li>Led end-to-end Application Security: secure code reviews, vulnerability assessments, penetration testing, and threat modelling across web and cloud-native applications.</li>
+              <li>Developed Python scripts and lightweight automations to streamline security testing, data analysis, and operational workflows.</li>
+              <li>Designed and implemented Cloudflare WAF rules using Terraform (IaC), enabling scalable, consistent controls across environments.</li>
+              <li>Administered and tuned Cloudflare configurations (WAF, bot protection, rate limiting, custom rules) to reduce attack surface.</li>
+              <li>Partnered with SOC/Incident Response to support investigations, root-cause analysis, and remediation guidance.</li>
+              <li>Built and supported DevSecOps security tooling and integrated checks into CI/CD pipelines.</li>
+              <li>Supported security and regulatory audits, vendor/tool due diligence, security tool POCs, and documented key playbooks/processes.</li>
+              <li>Managed AWS security configurations (including Cognito) from an AppSec perspective.</li>
             </ul>
           </article>
 
-          <article class="timeline__item card">
-            <div class="timeline__top">
-              <h3>Application Security Consultant — Service-Based Company</h3>
-              <div class="muted">(Add location & dates)</div>
+          <article class="card xp">
+            <div class="xp-top">
+              <div>
+                <h3>Service-based consulting — Multi-industry AppSec & VAPT</h3>
+                <div class="meta">Banking, retail, conglomerates; client delivery + security enablement</div>
+              </div>
+              <div class="meta">(add dates)</div>
             </div>
             <ul class="list">
-              <li>Delivered security engagements across banking, retail, and large enterprise clients.</li>
-              <li>Performed AppSec, VAPT, secure architecture reviews, threat modelling, and Python scripting for automation.</li>
-              <li>Implemented CI/CD security controls for SAST, DAST, SCA and vulnerability management.</li>
-              <li>Ran client demos and mitigation discussions; provided remediation consultation and retested fixes.</li>
-              <li>Executed OWASP & SANS-aligned testing for web apps and network devices.</li>
-              <li>Mobile application security testing (Android & iOS).</li>
+              <li>Performed Application Security, VAPT, secure network architecture reviews, threat modelling, and Python scripting as required.</li>
+              <li>Implemented CI/CD pipelines for security testing (SCA, SAST, DAST and related controls).</li>
+              <li>Handled client demos and remediation discussions; provided consultation to fix reported vulnerabilities and retested fixes.</li>
+              <li>Delivered OWASP & SANS-aligned assessments for web applications and network devices.</li>
+              <li>Conducted CIS/MIS benchmark-driven build reviews and configuration hardening checks.</li>
+              <li>Mobile application security testing (Android and iOS).</li>
+              <li>Mentored junior team members and delivered sessions on security testing basics.</li>
             </ul>
           </article>
 
-          <article class="timeline__item card">
-            <div class="timeline__top">
-              <h3>Product Security Engineer — Lexmark (USA Product Company)</h3>
-              <div class="muted">(Add location & dates)</div>
+          <article class="card xp">
+            <div class="xp-top">
+              <div>
+                <h3>Lexmark (USA product-based) — Product Security (Release sign-off)</h3>
+                <div class="meta">Hosted builds internally; full security test coverage pre-release</div>
+              </div>
+              <div class="meta">(add dates)</div>
             </div>
             <ul class="list">
-              <li>Solely responsible for end-to-end product security assurance until release sign-off.</li>
-              <li>Hosted installation builds in an internal/private environment and executed comprehensive security test cases.</li>
-              <li>Partnered with application owners for threat modelling; tracked vulnerabilities, coordinated remediation, and performed retesting.</li>
-              <li>Performed complete VAPT and AppSec for applications, including mobile security testing (Android & iOS).</li>
+              <li>Solely responsible for end-to-end security testing of products until release readiness.</li>
+              <li>Hosted installation builds in a private environment and executed complete security test cases.</li>
+              <li>Supported application owners with threat modelling; coordinated remediation with developers and performed retesting.</li>
+              <li>Performed complete VAPT and AppSec; mobile security pentesting for Android and iOS.</li>
             </ul>
           </article>
 
-          <article class="timeline__item card">
-            <div class="timeline__top">
-              <h3>Security Consultant — Service-Based Company</h3>
-              <div class="muted">(Add location & dates)</div>
+          <article class="card xp">
+            <div class="xp-top">
+              <div>
+                <h3>Early service-based role — Security Testing & Architecture Reviews</h3>
+                <div class="meta">Web/thick client testing + infra configuration audits</div>
+              </div>
+              <div class="meta">(add dates)</div>
             </div>
             <ul class="list">
               <li>Tested client web applications and thick client applications.</li>
-              <li>Performed secure network architecture reviews and infrastructure security assessments.</li>
-              <li>Conducted configuration audits for firewalls, servers, routers; build reviews using CIS/MIS benchmarks.</li>
-              <li>Presented findings to stakeholders and supported remediation planning.</li>
-              <li>Mobile security pentesting (Android & iOS).</li>
+              <li>Performed secure network architecture reviews and configuration audits (firewalls, servers, routers).</li>
+              <li>Presented vulnerability findings and supported mitigation planning.</li>
+              <li>Performed CIS/MIS benchmark-aligned build reviews.</li>
+              <li>Mobile security pentesting for Android and iOS.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
+    <!-- AI FOCUS -->
+    <section id="focus">
       <div class="container">
-        <div class="section__header">
-          <h2>Projects</h2>
-          <p>Showcase a couple of practical things you’ve built or contributed to.</p>
-        </div>
-
-        <div class="grid grid--3">
-          <div class="card">
-            <h3>Cloudflare WAF as Code</h3>
-            <p class="muted">Terraform patterns for WAF rules, rate limits, and reusable modules.</p>
-            <div class="card__footer">
-              <a class="link" href="https://github.com/yourprofile" target="_blank" rel="noreferrer">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Security Automation (Python)</h3>
-            <p class="muted">Small scripts to speed up validation, reporting, and data analysis.</p>
-            <div class="card__footer">
-              <a class="link" href="https://github.com/yourprofile" target="_blank" rel="noreferrer">View on GitHub →</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>AI Security Notes / Labs</h3>
-            <p class="muted">Secure AI development + red teaming preparation and experiments.</p>
-            <div class="card__footer">
-              <a class="link" href="https://github.com/yourprofile" target="_blank" rel="noreferrer">View on GitHub →</a>
-            </div>
+        <div class="section-head">
+          <div>
+            <h2>Current focus: Secure AI & AI Red Teaming</h2>
+            <p>How I’m extending AppSec into AI attack surfaces.</p>
           </div>
         </div>
 
-        <p class="tiny-note">
-          Tip: Keep 2–3 projects only, and pin those repositories on GitHub.
-        </p>
+        <div class="grid grid-2">
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">Secure AI development</h3>
+            <ul class="list">
+              <li>Working on secure AI development and implementation with security-by-design thinking.</li>
+              <li>Mapping AI risks to traditional AppSec controls (input handling, authz, data exposure, logging, monitoring).</li>
+              <li>Building practical guardrails and testing approaches aligned with real deployment patterns.</li>
+            </ul>
+          </div>
+          <div class="card box">
+            <h3 style="margin:0; font-size:15px;">AI red teaming preparation</h3>
+            <ul class="list">
+              <li>Preparing for AI red teaming: adversarial testing, prompt injection patterns, data leakage scenarios, and abuse cases.</li>
+              <li>Focusing on attack paths that matter to businesses (data exfiltration, privilege misuse, policy bypass, workflow manipulation).</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section id="contact">
       <div class="container">
-        <div class="section__header">
-          <h2>Contact</h2>
-          <p>For roles in AppSec / DevSecOps / Cloud Security / AI Security.</p>
-        </div>
-
-        <div class="card contact">
+        <div class="section-head">
           <div>
-            <h3>Let’s connect</h3>
-            <p class="muted">Email is best. LinkedIn works too.</p>
-          </div>
-          <div class="contact__actions">
-            <a class="btn" href="mailto:your.email@email.com">Email me</a>
-            <a class="btn btn--ghost" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn btn--ghost" href="https://github.com/yourprofile" target="_blank" rel="noreferrer">GitHub</a>
+            <h2>Contact</h2>
+            <p>Open to AppSec / DevSecOps / Cloud Security / AI Security opportunities.</p>
           </div>
         </div>
 
-        <footer class="footer">
-          <span>© <span id="year"></span> Indranil</span>
-          <span class="muted">Built with HTML/CSS • Hosted on GitHub Pages</span>
+        <div class="card box" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;">
+          <div>
+            <div style="font-weight:900;">Let’s connect</div>
+            <div style="color:var(--mut); margin-top:6px;">Replace the placeholders with your real links and email.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn btn-ghost" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-ghost" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="mailto:your.email@domain.com">Email</a>
+          </div>
+        </div>
+
+        <footer>
+          <div class="footer-row">
+            <div>© <span id="year"></span> Indranil</div>
+            <div>Built for GitHub Pages • Clean, fast, and recruiter-friendly</div>
+          </div>
         </footer>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const saved = localStorage.getItem("theme");
+    if(saved === "light"){ root.setAttribute("data-theme","light"); btn.textContent="☀️"; }
+
+    btn.addEventListener("click", () => {
+      const isLight = root.getAttribute("data-theme") === "light";
+      if(isLight){
+        root.removeAttribute("data-theme");
+        localStorage.setItem("theme","dark");
+        btn.textContent="🌙";
+      } else {
+        root.setAttribute("data-theme","light");
+        localStorage.setItem("theme","light");
+        btn.textContent="☀️";
+      }
+    });
+  </script>
 </body>
 </html>
